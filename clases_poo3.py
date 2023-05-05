@@ -30,6 +30,7 @@ class Cerveza:
 
 
 miCerveza = Cerveza("🍺 Chapulteca!")
+<<<<<<< HEAD
 
 
 # print(miCerveza.nombre)
@@ -66,3 +67,7 @@ class Naves:
         self.sistema_defensa = False
 
 # https://www.youtube.com/watch?v=eSYuUb6y59M
+=======
+print(miCerveza.nombre)
+miCerveza.añejar()
+>>>>>>> origin/master
