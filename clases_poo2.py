@@ -44,18 +44,33 @@ class Camisetas:
         self.precio = precio
         self.talla = talla
         self.color = color
+        self.rebaja = False
 
     def aplicarDescuento(self, porcentaje):
         self.precio = self.precio - self.precio * porcentaje / 100
+        if porcentaje < 100:
+            self.rebaja = True
+
+    def infoProducto(self):
+        info = f"Descripción de la camiseta\nMarca: {self.marca}\nPrecio: ${self.precio:.2f}\nTalla: {self.talla}\nColor: {self.color}\n"
+        if self.rebaja:
+            info += "Este Producto Está Rebajado"
+        return info
 
 
 camiseta = Camisetas("Nike", 19.99, "S", "lila")
 camisetaAdidas = Camisetas("Adidas", 30.50, "M", "Grey")
 # --------------->Aplicando descuento<-------------------
-print(camisetaAdidas.precio)
-camisetaAdidas.aplicarDescuento(50)  # -------->Aplicando 50% de descuento
-print(camisetaAdidas.precio)
+# print(camisetaAdidas.precio)
+# camisetaAdidas.aplicarDescuento(50)  # -------->Aplicando 50% de descuento
+# print(camisetaAdidas.precio)
 
-print(camiseta.precio)
-camiseta.aplicarDescuento(50)  # -------------->Aplicando 50% de descuento
-print(camiseta.precio)
+# print(camiseta.precio)
+# camiseta.aplicarDescuento(50)  # -------------->Aplicando 50% de descuento
+# print(camiseta.precio)
+
+camiseta.aplicarDescuento(50)
+print(camiseta.infoProducto())
+print("*****************************")  # ---->he aplicado un descuento.
+camisetaAdidas.aplicarDescuento(50)
+print(camisetaAdidas.infoProducto())
